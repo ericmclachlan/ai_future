@@ -1,0 +1,37 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./index.html:/app/index.html
+      - ./vite.config.js:/app/vite.config.js
+      - ./package.json:/app/package.json
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./server.js:/app/server.js
+      - ./package.json:/app/package.json
+    environment:
+      - NODE_ENV=development
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 
