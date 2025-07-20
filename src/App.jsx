@@ -6,6 +6,17 @@ import slidesPromise from './slides';
 
 const API_BASE = 'http://localhost:3001/api';
 
+// Helper function to extract title from markdown content
+function extractTitle(markdownContent) {
+  const lines = markdownContent.split('\n');
+  for (const line of lines) {
+    if (line.startsWith('# ')) {
+      return line.replace('# ', '').trim();
+    }
+  }
+  return 'Untitled Slide';
+}
+
 function LoadingView() {
   return (
     <Center h="100vh">
@@ -75,13 +86,16 @@ function PresenterView({ slides }) {
           <Select 
             value={currentSlide} 
             onChange={handleSlideSelect}
-            width="200px"
+            width="300px"
           >
-            {slides.map((_, index) => (
-              <option key={index} value={index}>
-                Slide {index + 1}
-              </option>
-            ))}
+            {slides.map((slide, index) => {
+              const title = extractTitle(slide[0]); // Use presenter content for title
+              return (
+                <option key={index} value={index}>
+                  {index + 1}. {title}
+                </option>
+              );
+            })}
           </Select>
           
           <Button 
