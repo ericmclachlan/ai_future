@@ -138,7 +138,7 @@ function AudienceView({ slides }) {
 
   return (
     <Box p={8}>
-      <Heading mb={6}>Audience View</Heading>
+      <Heading mb={6}>Surviving AI as a Software Engineer</Heading>
       
       <Box>
         <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
