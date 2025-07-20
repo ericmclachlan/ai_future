@@ -70,7 +70,9 @@ function PresenterView({ slides }) {
         <Box>
           <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
           <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50">
-            <ReactMarkdown>{slides[currentSlide][0]}</ReactMarkdown>
+            <div className="markdown-body">
+              <ReactMarkdown>{slides[currentSlide][0]}</ReactMarkdown>
+            </div>
           </Box>
         </Box>
 
@@ -141,7 +143,9 @@ function AudienceView({ slides }) {
       <Box>
         <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
         <Box p={6} border="1px" borderColor="gray.200" borderRadius="md" bg="white" minH="400px">
-          <ReactMarkdown>{slides[currentSlide][1]}</ReactMarkdown>
+          <div className="markdown-body">
+            <ReactMarkdown>{slides[currentSlide][1]}</ReactMarkdown>
+          </div>
         </Box>
       </Box>
     </Box>
