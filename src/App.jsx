@@ -1,10 +1,21 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { Box, Heading, Button, Select, VStack, HStack, Text } from '@chakra-ui/react';
+import { Box, Heading, Button, Select, VStack, HStack, Text, Spinner, Center } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import slides from './slides';
+import slidesPromise from './slides';
 
 const API_BASE = 'http://localhost:3001/api';
+
+function LoadingView() {
+  return (
+    <Center h="100vh">
+      <VStack spacing={4}>
+        <Spinner size="xl" />
+        <Text>Loading slides...</Text>
+      </VStack>
+    </Center>
+  );
+}
 
 function PresenterView({ slides }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -123,7 +134,32 @@ function AudienceView({ slides }) {
   );
 }
 
-export default function App() {
+function AppWithSlides() {
+  const [slides, setSlides] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    slidesPromise.then(loadedSlides => {
+      setSlides(loadedSlides);
+      setLoading(false);
+    }).catch(error => {
+      console.error('Failed to load slides:', error);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <LoadingView />;
+  }
+
+  if (!slides) {
+    return (
+      <Center h="100vh">
+        <Text color="red.500">Failed to load slides</Text>
+      </Center>
+    );
+  }
+
   return (
     <Router>
       <Routes>
@@ -134,3 +170,5 @@ export default function App() {
     </Router>
   );
 }
+
+export default AppWithSlides;

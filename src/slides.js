@@ -1,16 +1,38 @@
-const slides = [
-  [
-    `# Presenter Notes: Welcome\n\n- Introduce yourself\n- Set expectations for the talk`,
-    `# Welcome!\n\nLet's get started with our presentation.`
-  ],
-  [
-    `# Presenter Notes: AI and Software Engineering\n\n- Discuss the impact of AI on the profession\n- Mention personal experiences`,
-    `# AI & Software Engineering\n\nHow is AI changing our work?`
-  ],
-  [
-    `# Presenter Notes: Q&A\n\n- Invite questions from the audience`,
-    `# Questions?\n\nThank you for your attention!`
-  ]
-];
+// Dynamic slide loader
+const slideModules = import.meta.glob('./slides/*.md', { as: 'raw' });
 
-export default slides; 
+async function loadSlides() {
+  const slideFiles = Object.keys(slideModules);
+  
+  // Group files by slide number and type
+  const slideGroups = {};
+  
+  for (const file of slideFiles) {
+    const match = file.match(/\.\/slides\/(\d+\.\d+)\s*-\s*(.+?)\s*-\s*(presenter|audience)\.md$/);
+    if (match) {
+      const [, number, title, type] = match;
+      if (!slideGroups[number]) {
+        slideGroups[number] = { number, title, presenter: '', audience: '' };
+      }
+      slideGroups[number][type] = file;
+    }
+  }
+  
+  // Sort by slide number and load content
+  const sortedSlides = Object.values(slideGroups)
+    .sort((a, b) => parseFloat(a.number) - parseFloat(b.number));
+  
+  const slides = [];
+  
+  for (const slide of sortedSlides) {
+    const presenterContent = await slideModules[slide.presenter]();
+    const audienceContent = await slideModules[slide.audience]();
+    
+    slides.push([presenterContent, audienceContent]);
+  }
+  
+  return slides;
+}
+
+// Export a promise that resolves to the slides
+export default loadSlides(); 
