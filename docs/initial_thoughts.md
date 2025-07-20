@@ -5,14 +5,23 @@ I've been given an opportunity to present a topic at a local technical conferenc
 I'm looking for a title, but I think I know broadly what I want to say. Here are some points I'm wanting to cover but it's very chaotic. I'm not looking for suggestions on flow. I'm looking for your opinion on the emotional content for a Canadian audience.
 
 - A little bit of background presented by the host.
+
+### Starting a Career in Post-Apartheid South Africa
+
 - I was born as a white South African during apartheid. Apartheid ended 3 years before I finished high school. My father told me, "Are you going to go to university? Because previously, you could get a job like mine and work your way up. But now, for every guy like you, there's going to be 8 other guys looking for the same job."
 - How do you survive in this?
-- The IT industry has a high barrier to entry.
+    - I have a personal aptitude.
+    - The IT industry has a high barrier to entry.
 - This marriage of strategic decision making, opportunity, and ability allowed me to survive.
-- I worked a software engineer for 9 years or so on all kinds of things.
 
 Then, I spent 5 years teaching English in Japan. This was a wonderful opportunity for me - a South African white male - to be a true economic minority for the first time in my life. I learned what it was like to live in a country where people didn't speak my language as a way of making their voices heard.
-While I was in Japan, I completed a BA in Linguistics, which opened my eyes to a new way of seeing the world. Equality, prejudice, discrimination, perception, emotion, wellness.... . These were concepts mostly missing from my computer science degree. It also reinforced my love for language... beautiful, complicated, messy, language.
+
+### Went to Japan to teach English for 5 years.
+
+While I was in Japan, I completed a BA in Linguistics, which opened my eyes to a new way of seeing the world. Equality, prejudice, discrimination, perception, emotion, wellness.... . These were concepts mostly missing from my computer science degree.
+
+
+### Segway back into technology via a Masters in Computational Linguistics.
 
 But, in the meantime, South Africa continued to slide in an electricity crisis. I'd reached a plateau of career growth in Japan and was unlikely to ascend much further. I wanted a future for my family that teaching English could not afford. How could I survive and thrive? 
 MA Computational Linguistics at the University of Washington. Distance-based education, at a US institution leading to a Masters degree. Perfect for immigration to the USA.
@@ -42,7 +51,7 @@ so, I'm half the price of someone else. That's a lot of discounted value to bake
 
 ### "The Privilege of Non-Violence"
 
-One night, I was having a beer at a fire pit where one naval officer and an ex-naval officer were talking. The ex-naval officer was advocating for non-violence. The other was stating that the contribution of the military stabilizes societies. I was mostly quiet. When asked my opinion, I said that in my view, non-violence is a privilege. It's evidence that you are safe enough without violence to be non-violent. But I've been at a shopping mall when shots were fired. More than once. I've been the person to answer a knock on the front door where a man stood, with wrists bruised where he'd been bound in his own home.
+One night, I was having a beer at a fire pit where one naval officer and an ex-naval officer were talking. The ex-naval officer was advocating for non-violence. The other was stating that the contribution of the military stabilizes societies. I was mostly quiet. When asked my opinion, I said that in my view, non-violence is a privilege. It's evidence that you are safe enough without violence to be non-violent. But I've been at a shopping mall when shots were fired. More than once. I've been the person to answer a knock on my front door to be greeted by a man with wrists bruised where he'd been bound in his own home.
 
 My world is a world of violence. And my life is a struggle for survival.
 
