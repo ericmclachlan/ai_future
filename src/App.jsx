@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import slidesPromise from './slides';
 
 const API_BASE = 'http://localhost:3001/api';
+const POLLING_INTERVAL = parseInt(import.meta.env.VITE_POLLING_INTERVAL) || 500;
 
 // Helper function to extract title from markdown content
 function extractTitle(markdownContent) {
@@ -130,8 +131,8 @@ function AudienceView({ slides }) {
     // Fetch immediately
     fetchCurrentSlide();
 
-    // Then poll every second
-    const interval = setInterval(fetchCurrentSlide, 1000);
+    // Then poll at the configured interval
+    const interval = setInterval(fetchCurrentSlide, POLLING_INTERVAL);
 
     return () => clearInterval(interval);
   }, []);
