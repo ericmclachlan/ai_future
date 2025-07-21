@@ -24,3 +24,15 @@ npm run dev:full
 ```bash
 docker compose up
 ```
+
+## Endpoints
+
+### Frontend
+- http://localhost:5173/presenter — Presenter view
+- http://localhost:5173/audience — Audience view
+- http://localhost:5173/demo-markdown — Demo: renders a sample Markdown file with an image
+
+### Backend API
+- GET  http://localhost:3001/api/current-slide — Get the current slide index
+- POST http://localhost:3001/api/current-slide — Set the current slide index (JSON: `{ currentSlide: number }`)
+- GET  http://localhost:3001/demo-markdown — Returns a sample Markdown document (for testing)
