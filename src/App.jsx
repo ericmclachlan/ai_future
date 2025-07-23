@@ -64,8 +64,8 @@ function PresenterView({ slides }) {
   };
 
   return (
-    <Box p={8}>
-      <Heading mb={6}>Presenter View</Heading>
+    <Box p={8} bg="transparent">
+      <Heading mb={6} bg="transparent">Presenter View</Heading>
       
       <VStack spacing={4} align="stretch">
         <Box>
@@ -81,7 +81,10 @@ function PresenterView({ slides }) {
           <Button 
             onClick={handlePrevious} 
             isDisabled={currentSlide === 0}
-            colorScheme="blue"
+            bg="var(--primary)"
+            color="white"
+            _hover={{ bg: "var(--primary-light)" }}
+            _active={{ bg: "var(--primary-light)" }}
           >
             Previous
           </Button>
@@ -90,6 +93,11 @@ function PresenterView({ slides }) {
             value={currentSlide} 
             onChange={handleSlideSelect}
             width="300px"
+            bg="white"
+            color="black"
+            borderColor="gray.300"
+            _hover={{ borderColor: "var(--primary-light)" }}
+            _focus={{ borderColor: "var(--primary)", boxShadow: "0 0 0 1px var(--primary)" }}
           >
             {slides.map((slide, index) => {
               const title = extractTitle(slide[0]); // Use presenter content for title
@@ -104,7 +112,10 @@ function PresenterView({ slides }) {
           <Button 
             onClick={handleNext} 
             isDisabled={currentSlide === slides.length - 1}
-            colorScheme="blue"
+            bg="var(--primary)"
+            color="white"
+            _hover={{ bg: "var(--primary-light)" }}
+            _active={{ bg: "var(--primary-light)" }}
           >
             Next
           </Button>
@@ -138,8 +149,8 @@ function AudienceView({ slides }) {
   }, []);
 
   return (
-    <Box p={8}>
-      <Heading mb={6}>Surviving AI as a Software Engineer</Heading>
+    <Box p={8} bg="transparent">
+      <Heading mb={6} bg="transparent">Surviving AI as a Software Engineer</Heading>
       
       <Box>
         <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
