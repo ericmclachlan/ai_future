@@ -66,13 +66,13 @@ function PresenterView({ slides }) {
   };
 
   return (
-    <Box p={8} bg="transparent">
-      <Heading mb={6} bg="transparent">Presenter View</Heading>
+    <Box p={8} bg="transparent" width="100vw" px={0}>
+      <Heading mb={0} bg="transparent">Presenter View</Heading>
       
       <VStack spacing={4} align="stretch">
-        <Box>
-          <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
-          <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50">
+        <Box p={8} >
+          <Text fontWeight="bold" mb={2} width="100%">Slide {currentSlide + 1} of {slides.length}</Text>
+          <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50" width="100%">
             <div className="markdown-body">
               <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][0]}</ReactMarkdown>
             </div>
@@ -151,15 +151,17 @@ function AudienceView({ slides }) {
   }, []);
 
   return (
-    <Box p={8} bg="transparent">
-      <Heading mb={6} bg="transparent">Surviving AI as a Software Engineer</Heading>
+    <Box p={8} bg="transparent" width="100vw" px={0}>
+      <Heading mb={0} bg="transparent">Surviving AI as a Software Engineer</Heading>
       
       <Box>
-        <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
-        <Box p={6} border="1px" borderColor="gray.200" borderRadius="md" bg="white" minH="400px">
-          <div className="markdown-body">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][1]}</ReactMarkdown>
-          </div>
+        <Box p={8} pr={12}>
+          <Text fontWeight="bold" mb={2} width="100%">Slide {currentSlide + 1} of {slides.length}</Text>
+          <Box p={8} border="1px" borderColor="gray.200" borderRadius="md" bg="white" minH="400px" width="100%">
+            <div className="markdown-body">
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][1]}</ReactMarkdown>
+            </div>
+          </Box>
         </Box>
       </Box>
     </Box>
