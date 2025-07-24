@@ -33,6 +33,12 @@ function LoadingView() {
 
 function PresenterView({ slides }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const updateSlideOnServer = async (newSlideIndex) => {
     try {
@@ -68,7 +74,10 @@ function PresenterView({ slides }) {
   return (
     <Box p={6} bg="transparent" width="100vw" px={0}>
       <HStack mb={4} width="100%" justifyContent="space-between">
-        <Heading mb={0} bg="transparent">Presenter View</Heading>
+        <HStack>
+          <Heading mb={0} bg="transparent">Presenter View</Heading>
+          <Text fontSize="xl" color="gray.600" ml={4}>Actual: {now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}</Text>
+        </HStack>
         <Text fontWeight="bold" mr={12}>Slide {currentSlide + 1} of {slides.length}</Text>
       </HStack>
       <VStack m={0} spacing={4} align="stretch">
