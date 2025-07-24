@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Box, Heading, Button, Select, VStack, HStack, Text, Spinner, Center } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import slidesPromise from './slides';
 
 const API_BASE = 'http://localhost:3001/api';
@@ -72,7 +74,7 @@ function PresenterView({ slides }) {
           <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
           <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50">
             <div className="markdown-body">
-              <ReactMarkdown>{slides[currentSlide][0]}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][0]}</ReactMarkdown>
             </div>
           </Box>
         </Box>
@@ -156,7 +158,7 @@ function AudienceView({ slides }) {
         <Text fontWeight="bold" mb={2}>Slide {currentSlide + 1} of {slides.length}</Text>
         <Box p={6} border="1px" borderColor="gray.200" borderRadius="md" bg="white" minH="400px">
           <div className="markdown-body">
-            <ReactMarkdown>{slides[currentSlide][1]}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][1]}</ReactMarkdown>
           </div>
         </Box>
       </Box>

@@ -6,5 +6,6 @@
         "Revela",
         "vaguities",
         "VIATEC"
-    ]
+    ],
+    "files.insertFinalNewline": true
 }
