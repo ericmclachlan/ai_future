@@ -66,12 +66,13 @@ function PresenterView({ slides }) {
   };
 
   return (
-    <Box p={8} bg="transparent" width="100vw" px={0}>
-      <Heading mb={0} bg="transparent">Presenter View</Heading>
-      
-      <VStack spacing={4} align="stretch">
-        <Box p={8} >
-          <Text fontWeight="bold" mb={2} width="100%">Slide {currentSlide + 1} of {slides.length}</Text>
+    <Box p={6} bg="transparent" width="100vw" px={0}>
+      <HStack mt={0} mb={0} width="100%" justifyContent="space-between">
+        <Heading mb={0} bg="transparent">Presenter View</Heading>
+        <Text fontWeight="bold" mr={12}>Slide {currentSlide + 1} of {slides.length}</Text>
+      </HStack>
+      <VStack mt={0} spacing={4} align="stretch">
+        <Box p={6} mt={0}>
           <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50" width="100%">
             <div className="markdown-body">
               <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][0]}</ReactMarkdown>
@@ -151,12 +152,13 @@ function AudienceView({ slides }) {
   }, []);
 
   return (
-    <Box p={8} bg="transparent" width="100vw" px={0}>
-      <Heading mb={0} bg="transparent">Surviving AI as a Software Engineer</Heading>
-      
-      <Box>
+    <Box p={4} bg="transparent" width="100vw" px={0}>
+      <HStack mt={0} mb={0} width="100%" justifyContent="space-between">
+        <Heading mb={0} bg="transparent">Surviving AI as a Software Engineer</Heading>
+        <Text fontWeight="bold" mr={12}>Slide {currentSlide + 1} of {slides.length}</Text>
+      </HStack>
+      <Box mt={0}>
         <Box p={8} pr={12}>
-          <Text fontWeight="bold" mb={2} width="100%">Slide {currentSlide + 1} of {slides.length}</Text>
           <Box p={8} border="1px" borderColor="gray.200" borderRadius="md" bg="white" minH="400px" width="100%">
             <div className="markdown-body">
               <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][1]}</ReactMarkdown>
