@@ -67,20 +67,12 @@ function PresenterView({ slides }) {
 
   return (
     <Box p={6} bg="transparent" width="100vw" px={0}>
-      <HStack mt={0} mb={0} width="100%" justifyContent="space-between">
+      <HStack mb={4} width="100%" justifyContent="space-between">
         <Heading mb={0} bg="transparent">Presenter View</Heading>
         <Text fontWeight="bold" mr={12}>Slide {currentSlide + 1} of {slides.length}</Text>
       </HStack>
-      <VStack mt={0} spacing={4} align="stretch">
-        <Box p={6} mt={0}>
-          <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50" width="100%">
-            <div className="markdown-body">
-              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][0]}</ReactMarkdown>
-            </div>
-          </Box>
-        </Box>
-
-        <HStack spacing={4}>
+      <VStack m={0} spacing={4} align="stretch">
+        <HStack spacing={4} marginLeft={12}>
           <Button 
             onClick={handlePrevious} 
             isDisabled={currentSlide === 0}
@@ -123,6 +115,13 @@ function PresenterView({ slides }) {
             Next
           </Button>
         </HStack>
+        <Box p={6} mt={0}>
+          <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50" width="100%">
+            <div className="markdown-body">
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][0]}</ReactMarkdown>
+            </div>
+          </Box>
+        </Box>
       </VStack>
     </Box>
   );

@@ -208,7 +208,8 @@ body {
 .markdown-content img {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(85,107,47,0.08);
-  max-width: 100%;
+  max-width: 600px;
+  max-height: 450px;
   height: auto;
   margin: 1.5rem auto;
   display: block;
