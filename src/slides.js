@@ -27,8 +27,12 @@ async function loadSlides() {
   for (const slide of sortedSlides) {
     const presenterContent = await slideModules[slide.presenter]();
     const audienceContent = await slideModules[slide.audience]();
-    
-    slides.push([presenterContent, audienceContent]);
+    // Use the presenter filename for scheduled time
+    slides.push({
+      presenterContent,
+      audienceContent,
+      filename: slide.presenter
+    });
   }
   
   return slides;

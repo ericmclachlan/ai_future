@@ -40,6 +40,15 @@ function PresenterView({ slides }) {
     return () => clearInterval(interval);
   }, []);
 
+  // Extract scheduled time from filename (e.g., 12.47 -> 12:47)
+  let scheduledTime = '';
+  if (slides && slides[currentSlide] && slides[currentSlide].filename) {
+    const match = slides[currentSlide].filename.match(/(\d{2})\.(\d{2})/);
+    if (match) {
+      scheduledTime = `${match[1]}:${match[2]}`;
+    }
+  }
+
   const updateSlideOnServer = async (newSlideIndex) => {
     try {
       await fetch(`${API_BASE}/current-slide`, {
@@ -76,7 +85,8 @@ function PresenterView({ slides }) {
       <HStack mb={4} width="100%" justifyContent="space-between">
         <HStack>
           <Heading mb={0} bg="transparent">Presenter View</Heading>
-          <Text fontSize="xl" color="gray.600" ml={4}>Actual: {now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}</Text>
+          <Text fontSize="xl" color="gray.600" ml={4}
+            >Scheduled: {scheduledTime} | Actual: {now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}</Text>
         </HStack>
         <Text fontWeight="bold" mr={12}>Slide {currentSlide + 1} of {slides.length}</Text>
       </HStack>
@@ -104,7 +114,7 @@ function PresenterView({ slides }) {
             _focus={{ borderColor: "var(--primary)", boxShadow: "0 0 0 1px var(--primary)" }}
           >
             {slides.map((slide, index) => {
-              const title = extractTitle(slide[0]); // Use presenter content for title
+              const title = extractTitle(slide.presenterContent);
               return (
                 <option key={index} value={index}>
                   {index + 1}. {title}
@@ -127,7 +137,7 @@ function PresenterView({ slides }) {
         <Box p={6} mt={0}>
           <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" bg="gray.50" width="100%">
             <div className="markdown-body">
-              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][0]}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide].presenterContent}</ReactMarkdown>
             </div>
           </Box>
         </Box>
@@ -169,7 +179,7 @@ function AudienceView({ slides }) {
         <Box p={8} pr={12}>
           <Box p={8} border="1px" borderColor="gray.200" borderRadius="md" bg="white" minH="400px" width="100%">
             <div className="markdown-body">
-              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide][1]}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{slides[currentSlide].audienceContent}</ReactMarkdown>
             </div>
           </Box>
         </Box>
