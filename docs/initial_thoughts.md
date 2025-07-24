@@ -51,7 +51,16 @@ so, I'm half the price of someone else. That's a lot of discounted value to bake
 
 ### "The Privilege of Non-Violence"
 
-One night, I was having a beer at a fire pit where one naval officer and an ex-naval officer were talking. The ex-naval officer was advocating for non-violence. The other was stating that the contribution of the military stabilizes societies. I was mostly quiet. When asked my opinion, I said that in my view, non-violence is a privilege. It's evidence that you are safe enough without violence to be non-violent. But I've been at a shopping mall when shots were fired. More than once. I've been the person to answer a knock on my front door to be greeted by a man with wrists bruised where he'd been bound in his own home.
+One night, I was having a beer at a fire pit where one naval officer and an ex-naval officer were talking.
+The ex-naval officer was advocating for non-violence.
+The other was stating that the contribution of the military stabilizes societies.
+I was mostly quiet. When asked my opinion, I said that,
+in my view, non-violence is a privilege.
+It's evidence that you are safe enough without violence to be non-violent.
+
+But, I've been at a shopping mall when shots were fired.
+I've been the person to answer the front door;
+greeted by a man with wrists bruised from where he'd been bound in his own home.
 
 My world is a world of violence. And my life is a struggle for survival.
 
